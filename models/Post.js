@@ -8,7 +8,8 @@ class Post extends Sequelize.Model {
             category: {type: Sequelize.STRING, allowNull: true},
             date: {type: Sequelize.STRING, allowNull: false},
             address: {type: Sequelize.STRING, allowNull: false},
-            text: {type: Sequelize.STRING, allowNull: true},
+            summary: {type: Sequelize.STRING, allowNull: false},
+            text: {type: Sequelize.STRING, allowNull: false},
             img: {type: Sequelize.ARRAY(Sequelize.STRING), allowNull: true}
         }, {sequelize, modelName: "post"})
     }

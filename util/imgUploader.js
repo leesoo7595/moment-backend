@@ -58,6 +58,6 @@ async function ogImgUploadS3(imgPath) {
 
 
 module.exports = {
-    s3MulterSingle: multerMiddleWare,
+    s3Multer: multerMiddleWare,
     s3Uploader: ogImgUploadS3
 };
