@@ -6,6 +6,7 @@ const multer = require("multer");
 const multerS3 = require("multer-s3");
 const stream = require("stream");
 const request = require("request");
+const sharp = require("sharp");
 const secret = require("../credentials/credentials.json");
 const s3 = new AWS.S3({
     credentials: {
@@ -27,9 +28,11 @@ const multerMiddleWare = multer({
             //todo console
             cb(null, Date.now().toString());
             console.log("img", req.files);
+        },
+        transform: (req, file, cb) => {
+            cb(null, sharp().resize(100, 100).png());
         }
     })
-
 }).array(fileName, 10);
 
 function promisifyUploadWithStream(params) {
