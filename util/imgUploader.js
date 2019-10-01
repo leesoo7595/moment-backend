@@ -30,7 +30,7 @@ const multerMiddleWare = multer({
             console.log("img", req.files);
         },
         transform: (req, file, cb) => {
-            cb(null, sharp().resize(100, 100).png());
+            cb(null, sharp().resize(256).jpeg({quality:80}));
         }
     })
 }).array(fileName, 10);
