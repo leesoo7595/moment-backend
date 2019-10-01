@@ -10,6 +10,7 @@ you can make a special diary only for yourself.
 - Express
 - AWS Elastic Beanstalk
 - RDS Postgresql
+- Firebase
 
 
 ## feature
@@ -20,6 +21,13 @@ you can make a special diary only for yourself.
 - [x] create new address
 - [ ] update address
 - [ ] delete address
+
+### Auth
+
+- [ ] config firebase-admin
+- [ ] signup
+- [ ] signin
+- [ ] get token
 
 ### Category
 
