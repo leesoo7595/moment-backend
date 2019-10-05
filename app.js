@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const apiRouter = require('./routes/api');
 const indexRouter = require('./routes/index');
+const admin = require("./credentials/firebase");
 
 const app = express();
 
@@ -13,6 +14,15 @@ app.use(express.json());
 app.use(express.urlencoded({limit: '3mb', extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+    const {authorization} = req.headers;
+    admin.auth().verifyIdToken(authorization)
+        .then(decodedToken => console.log("success verify token!"))
+        .then(next)
+        .catch(() => createError("failed to verify token", 403));
+});
+
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 

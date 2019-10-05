@@ -38,4 +38,13 @@ router.post('/', s3Multer, (req, res, next) => {
         })
 });
 
+router.delete('/', (req, res, next) => {
+   const {address} = req.query;
+   Post.destroy({where: {address}})
+       .then(() => {
+           res.status(200);
+           res.end();
+       }).catch(next);
+});
+
 module.exports = router;
