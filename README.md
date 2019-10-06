@@ -19,15 +19,15 @@ you can make a special diary only for yourself.
 
 - [x] get all address list
 - [x] create new address
-- [ ] update address
-- [ ] delete address
+- [x] update address
+- [x] delete address
 
 ### Auth
 
-- [ ] config firebase-admin
-- [ ] signup
-- [ ] signin
-- [ ] get token
+- [x] config firebase-admin
+- [x] signup
+- [x] signin
+- [x] get token
 
 ### Category
 
